@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Connected from "./Views/Connected";
 import Disconnected from "./Views/Disconnected";
 import ImufView from "./Views/ImufView/ImufView";
-import DfuView from "./Views/DfuView/DfuView";
+//import DfuView from "./Views/DfuView/DfuView";
 import FCConnector from "./utilities/FCConnector";
 import ImufOnly from "./Views/ImufOnly";
-import DFUErrorView from "./Views/DFUErrorView";
+//import DFUErrorView from "./Views/DFUErrorView";
 import themes from "./Themes/Dark";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import "./App.css";
@@ -122,12 +122,6 @@ export class App extends Component {
           <ImufView goBack={() => this.setState({ imuf: false })} />
         </MuiThemeProvider>
       );
-    } else if (this.state.dfu) {
-        return (
-          <MuiThemeProvider theme={themes.dark}>
-            <DFUErrorView />
-          </MuiThemeProvider>
-        );
     } else if (this.state.connected) {
       return (
         <MuiThemeProvider theme={this.state.theme}>
