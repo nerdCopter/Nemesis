@@ -130,18 +130,6 @@ export default class Connected extends Component {
     let contents;
     let mergedProfile = this.props.fcConfig;
     switch (this.state.currentRoute.key) {
-      //       case "PFC":
-      //        contents = (
-      //          <PreFlightCheckView
-      //            goToImuf={this.props.goToImuf}
-      //            fcConfig={mergedProfile}
-      //            handleSave={this.handleSave}
-      //            modelUrl={this.state.theme.modelUrl}
-      //            openAssistant={name => this.openAssistant(name)}
-      //          />
-      //        );
-      //        break;
-
       default:
         contents = (
           <ConfigListView
