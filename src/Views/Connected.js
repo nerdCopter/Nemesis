@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import Paper from "@material-ui/core/Paper";
-import AuxChannelView from "./AuxChannelView/AuxChannelView";
+//import AuxChannelView from "./AuxChannelView/AuxChannelView";
 import ConfigListView from "./ConfigListView/ConfigListView";
-import FeaturesView from "./FeaturesView/FeaturesView";
-import PortsView from "./PortsView/PortsView";
-import FiltersView from "./FiltersView/FiltersView";
-import PidsView from "./PidView/PidView";
-import RatesView from "./RatesView/RatesView";
+//import FeaturesView from "./FeaturesView/FeaturesView";
+//import PortsView from "./PortsView/PortsView";
+//import FiltersView from "./FiltersView/FiltersView";
+//import PidsView from "./PidView/PidView";
+//import RatesView from "./RatesView/RatesView";
 import AppBarView from "./AppBarView/AppBarView";
 import FCConnector from "../utilities/FCConnector";
-import AssistantView from "./Assistants/AssistantView";
+//import AssistantView from "./Assistants/AssistantView";
 //import ProfileView from "./ProfileView/ProfileView";
-import BlackboxView from "./BlackboxView/BlackboxView";
-import RXView from "./RXView/RXView";
-import MotorsView from "./MotorsView/MotorsView";
-import OSDView from "./OSDView/OSDView";
+//import BlackboxView from "./BlackboxView/BlackboxView";
+//import RXView from "./RXView/RXView";
+//import MotorsView from "./MotorsView/MotorsView";
+//import OSDView from "./OSDView/OSDView";
 import "./Connected.css";
 import { FCConfigContext } from "../App";
 import PreFlightCheckView from "./PreFlightCheckView/PreFlightCheckView";
@@ -141,166 +141,6 @@ export default class Connected extends Component {
           />
         );
         break;
-      case "PID": {
-        let profile = this.props.fcConfig.currentPidProfile;
-        mergedProfile = Object.assign(
-          {},
-          mergedProfile,
-          mergedProfile.pid_profile.values[profile]
-        );
-        contents = (
-          <PidsView
-            fcConfig={mergedProfile}
-            isBxF={mergedProfile.isBxF}
-            handleSave={this.handleSave}
-            changeProfile={newProfile => {
-              this.notifyDirty(
-                true,
-                mergedProfile.currentPidProfile,
-                newProfile
-              );
-              FCConnector.changeProfile("pid", newProfile).then(() => {
-                this.props.fcConfig.currentPidProfile = newProfile;
-                this.forceUpdate();
-              });
-            }}
-            notifyDirty={(isDirty, item, newValue) =>
-              this.notifyDirty(isDirty, item, newValue)
-            }
-            id="pid_profile"
-            active={profile}
-            profileList={mergedProfile.pidProfileList}
-            items={this.getRouteItems(mergedProfile)}
-          />
-        );
-        break;
-      }
-      case "RATES": {
-        let profile = this.props.fcConfig.currentRateProfile;
-        mergedProfile = Object.assign(
-          {},
-          mergedProfile,
-          mergedProfile.rate_profile.values[profile]
-        );
-        contents = (
-          <RatesView
-            fcConfig={mergedProfile}
-            changeProfile={newProfile => {
-              this.notifyDirty(
-                true,
-                mergedProfile.currentRateProfile,
-                newProfile
-              );
-              FCConnector.changeProfile("rate", newProfile).then(() => {
-                this.props.fcConfig.currentRateProfile = newProfile;
-                this.forceUpdate();
-              });
-            }}
-            notifyDirty={(isDirty, item, newValue) =>
-              this.notifyDirty(isDirty, item, newValue)
-            }
-            id={"rate_profile"}
-            active={mergedProfile.currentRateProfile}
-            profileList={mergedProfile.rateProfileList}
-            items={this.getRouteItems(mergedProfile)}
-          />
-        );
-        break;
-      }
-      case "MODES":
-        contents = (
-          <AuxChannelView
-            fcConfig={mergedProfile}
-            auxScale={mergedProfile.rx_scale}
-            auxModeList={mergedProfile.aux_channel_modes}
-            modes={mergedProfile.modes && mergedProfile.modes.values}
-            notifyDirty={(isDirty, item, newValue) =>
-              this.notifyDirty(isDirty, item, newValue)
-            }
-          />
-        );
-        break;
-      case "MOTORS":
-        contents = (
-          <MotorsView
-            features={this.getRouteFeatures("MOTORS")}
-            items={this.getRouteItems(mergedProfile, true)}
-            fcConfig={mergedProfile}
-            openAssistant={name => this.openAssistant(name)}
-            notifyDirty={(isDirty, item, newValue) =>
-              this.notifyDirty(isDirty, item, newValue)
-            }
-          />
-        );
-        break;
-      case "RX":
-        contents = (
-          <RXView
-            features={this.getRouteFeatures("RX")}
-            items={this.getRouteItems(mergedProfile, true)}
-            fcConfig={mergedProfile}
-            openAssistant={name => this.openAssistant(name)}
-            notifyDirty={(isDirty, item, newValue) =>
-              this.notifyDirty(isDirty, item, newValue)
-            }
-          />
-        );
-        break;
-      case "PORTS":
-        contents = (
-          <PortsView
-            rxProvider={mergedProfile.serialrx_provider}
-            ports={mergedProfile.ports.values}
-            notifyDirty={(isDirty, item, newValue) =>
-              this.notifyDirty(isDirty, item, newValue)
-            }
-          />
-        );
-        break;
-      case "OSD":
-        contents = (
-          <OSDView
-            fcConfig={mergedProfile}
-            notifyDirty={(isDirty, item, newValue) =>
-              this.notifyDirty(isDirty, item, newValue)
-            }
-            items={this.getRouteItems(mergedProfile, true)}
-          />
-        );
-        break;
-      case "BLACKBOX":
-        contents = (
-          <BlackboxView
-            storageCommand="msc"
-            items={this.getRouteItems(mergedProfile, true)}
-            notifyDirty={(isDirty, item, newValue) =>
-              this.notifyDirty(isDirty, item, newValue)
-            }
-          />
-        );
-        break;
-      case "FEATURES":
-        contents = (
-          <FeaturesView
-            features={mergedProfile.features.values}
-            fcConfig={mergedProfile}
-            notifyDirty={(isDirty, item, newValue) =>
-              this.notifyDirty(isDirty, item, newValue)
-            }
-          />
-        );
-        break;
-      case "FILTERS":
-        contents = (
-          <FiltersView
-            features={this.getRouteFeatures("FILTERS")}
-            fcConfig={mergedProfile}
-            notifyDirty={(isDirty, item, newValue) =>
-              this.notifyDirty(isDirty, item, newValue)
-            }
-          />
-        );
-        break;
       default:
         contents = (
           <ConfigListView
@@ -344,18 +184,6 @@ export default class Connected extends Component {
             appVersion={this.props.appVersion}
           />
           {contents}
-          {this.state.openAssistant && (
-            <AssistantView
-              rebooting={this.props.rebooting}
-              fcConfig={mergedProfile}
-              handleSave={this.handleSave}
-              theme={this.state.theme}
-              fw={"bxf"}
-              open={this.state.openAssistant}
-              onClose={() => this.closeAssistant()}
-              type={this.state.assistantType}
-            />
-          )}
         </FCConfigContext.Provider>
       </Paper>
     );
