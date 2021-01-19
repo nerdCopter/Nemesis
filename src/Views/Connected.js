@@ -7,7 +7,7 @@ import ConfigListView from "./ConfigListView/ConfigListView";
 //import FiltersView from "./FiltersView/FiltersView";
 //import PidsView from "./PidView/PidView";
 //import RatesView from "./RatesView/RatesView";
-import AppBarView from "./AppBarView/AppBarView";
+//import AppBarView from "./AppBarView/AppBarView";
 import FCConnector from "../utilities/FCConnector";
 //import AssistantView from "./Assistants/AssistantView";
 //import ProfileView from "./ProfileView/ProfileView";
@@ -18,7 +18,7 @@ import FCConnector from "../utilities/FCConnector";
 import "./Connected.css";
 import { FCConfigContext } from "../App";
 //import PreFlightCheckView from "./PreFlightCheckView/PreFlightCheckView";
-import ResponsiveDrawerView from "./ResponsiveDrawerView";
+//import ResponsiveDrawerView from "./ResponsiveDrawerView";
 
 export default class Connected extends Component {
   constructor(props) {
@@ -146,34 +146,7 @@ export default class Connected extends Component {
 
     return (
       <Paper className={`connected-root ${mergedProfile.version.fw}`}>
-        <FCConfigContext.Provider value={mergedProfile}>
-          <AppBarView
-            rebooting={this.props.rebooting}
-            position="absolute"
-            handleDrawerToggle={this.handleDrawerToggle}
-            handleSearch={this.handleSearch}
-            onSave={this.handleSave}
-            notifyDirty={(isDirty, item, newValue) =>
-              this.notifyDirty(isDirty, item, newValue)
-            }
-            title={this.state.currentRoute.title}
-            fcConfig={mergedProfile}
-            isDirty={this.state.isDirty}
-          />
-          <ResponsiveDrawerView
-            routes={this.routes}
-            goToImuf={this.props.goToImuf}
-            fcConfig={mergedProfile}
-            mobileOpen={this.state.mobileOpen}
-            onClose={() => {
-              this.setState({ mobileOpen: false });
-            }}
-            handleMenuItemClick={this.handleMenuItemClick}
-            handleClickAway={this.handleClickAway}
-            appVersion={this.props.appVersion}
-          />
-          {contents}
-        </FCConfigContext.Provider>
+        <FCConfigContext.Provider value={mergedProfile} />
       </Paper>
     );
   }
