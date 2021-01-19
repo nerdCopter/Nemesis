@@ -146,7 +146,8 @@ export default class Connected extends Component {
 
     return (
       <Paper className={`connected-root ${mergedProfile.version.fw}`}>
-        <FCConfigContext.Provider value={mergedProfile} />
+        {/*        <FCConfigContext.Provider value={mergedProfile} />
+      */}
       </Paper>
     );
   }
