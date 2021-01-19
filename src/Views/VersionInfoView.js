@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import List from "@material-ui/core/List";
 import MenuItem from "@material-ui/core/MenuItem";
 import Launch from "@material-ui/icons/Launch";
-import Divider from "@material-ui/core/Divider";
+//import Divider from "@material-ui/core/Divider";
 import { FormattedMessage } from "react-intl";
-import CliView from "./CliView/CliView";
+//import CliView from "./CliView/CliView";
 export default class VersionInfoView extends Component {
   constructor(props) {
     super(props);

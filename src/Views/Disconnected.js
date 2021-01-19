@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import CliView from "./CliView/CliView";
+//import CliView from "./CliView/CliView";
 import { FormattedMessage } from "react-intl";
 
 export default class Disconnected extends Component {
@@ -82,14 +82,6 @@ export default class Disconnected extends Component {
               >
                 <CircularProgress size={80} thickness={5} />
               </div>
-            )}
-            {openCli && (
-              <CliView
-                open={openCli}
-                startText={`${this.incompatibleMessage}\n\n${device.error}`}
-                stayOpen={openCli}
-                ref="cliView"
-              />
             )}
           </CardContent>
         </Card>

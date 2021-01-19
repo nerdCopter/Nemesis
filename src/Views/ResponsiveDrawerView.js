@@ -4,17 +4,17 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
-import List from "@material-ui/core/List";
-import MenuItem from "@material-ui/core/MenuItem";
+//import List from "@material-ui/core/List";
+//import MenuItem from "@material-ui/core/MenuItem";
 import Typography from "@material-ui/core/Typography";
-import Badge from "@material-ui/core/Badge";
+//import Badge from "@material-ui/core/Badge";
 import VersionInfoView from "./VersionInfoView";
-import { FormattedMessage } from "react-intl";
+//import { FormattedMessage } from "react-intl";
 import "./Connected.css";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import CardMedia from "@material-ui/core/CardMedia";
-import CliView from "./CliView/CliView";
+//import CliView from "./CliView/CliView";
 
 const drawerWidth = 240;
 

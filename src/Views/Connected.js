@@ -16,7 +16,7 @@ import FCConnector from "../utilities/FCConnector";
 //import MotorsView from "./MotorsView/MotorsView";
 //import OSDView from "./OSDView/OSDView";
 import "./Connected.css";
-import { FCConfigContext } from "../App";
+//import { FCConfigContext } from "../App";
 //import PreFlightCheckView from "./PreFlightCheckView/PreFlightCheckView";
 //import ResponsiveDrawerView from "./ResponsiveDrawerView";
 
@@ -144,11 +144,6 @@ export default class Connected extends Component {
         break;
     }
 
-    return (
-      <Paper className={`connected-root ${mergedProfile.version.fw}`}>
-        {/*        <FCConfigContext.Provider value={mergedProfile} />
-      */}
-      </Paper>
-    );
+    return <Paper className={`connected-root ${mergedProfile.version.fw}`} />;
   }
 }

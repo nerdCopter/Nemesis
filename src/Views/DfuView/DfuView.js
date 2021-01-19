@@ -320,7 +320,11 @@ export default class DfuView extends Component {
             <Typography style={{ "max-height": "60vh", overflow: "auto" }}>
               <ReactMarkdown
                 renderers={{
-                  link: props => <p>{props.children}</p>
+                  link: props => (
+                    <div>
+                      <p>{props.children}</p>
+                    </div>
+                  )
                 }}
                 source={this.state.currentRelease.body}
                 classNames={this.state.theme}

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SliderView from "../Items/SliderView";
 import Paper from "@material-ui/core/Paper";
-import FeaturesView from "../FeaturesView/FeaturesView";
+//import FeaturesView from "../FeaturesView/FeaturesView";
 import "./ConfigListView.css";
 import StatelessInput from "../Items/StatelessInput";
 import StatelessFloat from "../Items/StatelessFloat";
@@ -27,13 +27,6 @@ export default class ConfigListView extends Component {
       [];
     return (
       <div className="config-list-view">
-        {this.props.features && (
-          <FeaturesView
-            fcConfig={this.props.fcConfig}
-            features={this.props.features}
-            notifyDirty={this.props.notifyDirty}
-          />
-        )}
         {!!sliders.length && (
           <Paper className="config-list-view-sliders">
             {sliders.map(item => {

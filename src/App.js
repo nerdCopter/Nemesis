@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Connected from "./Views/Connected";
+//import Connected from "./Views/Connected";
 import Disconnected from "./Views/Disconnected";
 import ImufView from "./Views/ImufView/ImufView";
 //import DfuView from "./Views/DfuView/DfuView";
