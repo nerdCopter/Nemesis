@@ -17,7 +17,7 @@ import FCConnector from "../utilities/FCConnector";
 //import OSDView from "./OSDView/OSDView";
 import "./Connected.css";
 import { FCConfigContext } from "../App";
-import PreFlightCheckView from "./PreFlightCheckView/PreFlightCheckView";
+//import PreFlightCheckView from "./PreFlightCheckView/PreFlightCheckView";
 import ResponsiveDrawerView from "./ResponsiveDrawerView";
 
 export default class Connected extends Component {
@@ -130,17 +130,18 @@ export default class Connected extends Component {
     let contents;
     let mergedProfile = this.props.fcConfig;
     switch (this.state.currentRoute.key) {
-      case "PFC":
-        contents = (
-          <PreFlightCheckView
-            goToImuf={this.props.goToImuf}
-            fcConfig={mergedProfile}
-            handleSave={this.handleSave}
-            modelUrl={this.state.theme.modelUrl}
-            openAssistant={name => this.openAssistant(name)}
-          />
-        );
-        break;
+      //       case "PFC":
+      //        contents = (
+      //          <PreFlightCheckView
+      //            goToImuf={this.props.goToImuf}
+      //            fcConfig={mergedProfile}
+      //            handleSave={this.handleSave}
+      //            modelUrl={this.state.theme.modelUrl}
+      //            openAssistant={name => this.openAssistant(name)}
+      //          />
+      //        );
+      //        break;
+
       default:
         contents = (
           <ConfigListView
