@@ -39,7 +39,7 @@ jobs:
       - name: setup node
         uses: actions/setup-node@master
         with:
-          node-version: '12'
+          node-version: '14'
         continue-on-error: false
 
       # for debugging
@@ -65,7 +65,7 @@ jobs:
           npm install -g npm@6
           npm config set python /usr/bin/python2.7
           npm install -g n
-          sudo n 12
+          sudo n 14
           npm install usb@1.6.1 --save
           npm install --save --save-exact --include=dev
         continue-on-error: false
@@ -94,7 +94,7 @@ jobs:
           npm install -g npm@6
           npm config set python /usr/bin/python2.7
           npm install -g n
-          sudo n 12
+          sudo n 14
           npm install usb@1.6.1 --save
         continue-on-error: false
 
