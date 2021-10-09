@@ -62,7 +62,7 @@ jobs:
         run: |
           rm -rf ./build/
           rm -rf ./dist/
-          apt install libudev-dev
+          sudo apt install libudev-dev
           npm install -g npm@6
           npm config set python /usr/bin/python2.7
           npm install -g n
