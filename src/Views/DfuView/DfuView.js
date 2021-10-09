@@ -109,6 +109,15 @@ export default class DfuView extends Component {
       .then(releaseList => {
         releaseList.forEach(function(release) {
           release.assets.forEach(function(target) {
+            target.version = target.name
+              .split(".hex")[0]
+              .split("_")
+              .slice(1, 2);
+            console.log("********* DEBUG **********:" + target.version);
+            if (target.version > "0.9.9") {
+              console.log("version > 0.9.9??: " + target.version);
+            }
+
             target.label = target.name
               .split(".hex")[0]
               .split("_")
