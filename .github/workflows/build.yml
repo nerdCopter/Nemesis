@@ -54,7 +54,8 @@ jobs:
           echo "Repo: ${{ github.REPOSITORY }}"
         continue-on-error: true
 
-      - name: Build-Setup Linux
+
+      - name: Build Linux
         if: ${{ startsWith(matrix.os, 'ubuntu') }}
         env:
           CI: false
@@ -68,21 +69,13 @@ jobs:
           sudo n 14
           npm install usb@1.6.1 --save
           npm install --save --save-exact --include=dev
-        continue-on-error: false
-
-      - name: Build Linux
-        if: ${{ startsWith(matrix.os, 'ubuntu') }}
-        env:
-          CI: false
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
           echo "############ pack #############"
           npm run electron-pack
           echo "############ dist #############"
           npm run dist --publish=never
         continue-on-error: false
 
-      - name: Build-Setup OSX
+      - name: Build OSX
         if: ${{ startsWith(matrix.os, 'macos') }}
         env:
           CI: false
@@ -96,14 +89,6 @@ jobs:
           npm install -g n
           sudo n 14
           npm install usb@1.6.1 --save
-        continue-on-error: false
-
-      - name: Build OSX
-        if: ${{ startsWith(matrix.os, 'macos') }}
-        env:
-          CI: false
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
           npm install --save --save-exact --include=dev
           echo "############ pack #############"
           npm run electron-pack
@@ -111,7 +96,7 @@ jobs:
           npm run dist --publish=never
         continue-on-error: false
 
-      - name: Build-Setup Windows
+      - name: Build Windows
         if: ${{ startsWith(matrix.os, 'windows') }}
         env:
           CI: false
@@ -125,14 +110,6 @@ jobs:
           npm config set python %USERPROFILE%\.windows-build-tools\python27\python.exe
           npm install usb@1.6.1 --save
           npm install --save --save-exact --include=dev
-        continue-on-error: false
-
-      - name: Build Windows
-        if: ${{ startsWith(matrix.os, 'windows') }}
-        env:
-          CI: false
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
           echo "############ pack #############"
           npm run electron-pack
           echo "############ dist #############"
