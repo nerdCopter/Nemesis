@@ -79,7 +79,7 @@
     "react-scripts": "1.1.5",
     "react-text-mask": "^5.4.3",
     "serialport": "^7.0.2",
-    "usb": "^1.6.1",
+    "usb": "^1.6.5",
     "websocket": "^1.0.28",
     "yarn": "^1.22.10"
   },
